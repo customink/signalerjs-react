@@ -1,3 +1,7 @@
+[![npm version](https://badge.fury.io/js/signalerjs-react.svg)](http://badge.fury.io/js/signalerjs-react)
+[![Build Status](https://secure.travis-ci.org/customink/signalerjs-react.svg?branch=master)](http://travis-ci.org/customink/signalerjs-react)
+[![Dependency Status](https://david-dm.org/customink/signalerjs-react.svg)](https://david-dm.org/customink/signalerjs-react)
+
 # signalerjs-react
 
 `signalerjs-react` provides a React interface for the [`signalerjs`](https://github.com/customink/signalerjs) A/B testing library.
