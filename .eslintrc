@@ -9,9 +9,5 @@
 
   "ecmaFeatures": {
     "modules": true
-  },
-
-  "globals": {
-    "assert": false
   }
 }

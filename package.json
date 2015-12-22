@@ -6,7 +6,7 @@
   "scripts": {
     "build": "$(npm bin)/webpack",
     "lint": "$(npm bin)/eslint src/**/*.js test/**/*.js",
-    "test": "$(npm bin)/mocha --compilers js:babel-core/register --recursive"
+    "test": "$(npm bin)/mocha --compilers js:babel-core/register --recursive --require ./test/setup.js"
   },
   "repository": {
     "type": "git",
@@ -35,10 +35,16 @@
     "babel-preset-react": "6.3.13",
     "babel-preset-stage-0": "6.3.13",
     "eslint": "1.10.3",
+    "expect": "1.13.4",
+    "jsdom": "7.2.1",
     "mocha": "2.3.4",
+    "react": "0.14.3",
+    "react-dom": "0.14.3",
+    "signalerjs": "0.4.0",
     "webpack": "1.12.9"
   },
   "peerDependencies": {
-    "react": "0.14.x"
+    "react": "0.14.x",
+    "signalerjs": "^0.4.0"
   }
 }
