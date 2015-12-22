@@ -1,0 +1,44 @@
+{
+  "name": "signalerjs-react",
+  "version": "0.0.1",
+  "description": "signalerjs React component for A/B testing",
+  "main": "dist/signalerjs-react.min.js",
+  "scripts": {
+    "build": "$(npm bin)/webpack",
+    "lint": "$(npm bin)/eslint src/**/*.js test/**/*.js",
+    "test": "$(npm bin)/mocha --compilers js:babel-core/register --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/customink/signalerjs-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/customink/signalerjs-react/issues"
+  },
+  "keywords": [
+    "a/b testing",
+    "javascript",
+    "feature testing",
+    "react",
+    "component"
+  ],
+  "files": [
+    "dist"
+  ],
+  "author": "Jonathan Lehman <jlehman@customink.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "6.3.21",
+    "babel-eslint": "5.0.0-beta6",
+    "babel-loader": "6.2.0",
+    "babel-preset-es2015": "6.3.13",
+    "babel-preset-react": "6.3.13",
+    "babel-preset-stage-0": "6.3.13",
+    "eslint": "1.10.3",
+    "mocha": "2.3.4",
+    "webpack": "1.12.9"
+  },
+  "peerDependencies": {
+    "react": "0.14.x"
+  }
+}
