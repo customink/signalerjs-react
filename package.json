@@ -35,6 +35,8 @@
     "babel-preset-react": "6.3.13",
     "babel-preset-stage-0": "6.3.13",
     "eslint": "1.10.3",
+    "eslint-config-customink": "1.0.0",
+    "eslint-plugin-react": "3.13.1",
     "expect": "1.13.4",
     "jsdom": "7.2.1",
     "mocha": "2.3.4",

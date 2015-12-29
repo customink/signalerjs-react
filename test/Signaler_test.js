@@ -2,9 +2,9 @@ import expect from 'expect';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Signaler from '../src';
-import signalerjs from 'signalerjs';
+import Signalerjs from 'signalerjs';
 
-const signalerInstance = new signalerjs({
+const signalerInstance = new Signalerjs({
   feature1: {
     flags: {
       flag1: 1,
