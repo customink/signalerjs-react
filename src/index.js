@@ -15,7 +15,7 @@ export default class Signaler extends Component {
 
   state = {
     flag: undefined
-  }
+  };
 
   componentDidMount() {
     this.getFlag();
@@ -25,9 +25,17 @@ export default class Signaler extends Component {
     this.getFlag();
   }
 
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
+  mounted = true;
+
   getFlag = () => {
     this.props.signalerInstance.featureFlag(this.props.featureName).then(flag => {
-      this.setState({flag});
+      if (this.mounted) {
+        this.setState({flag});
+      }
     });
   }
 
