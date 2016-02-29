@@ -5,8 +5,9 @@ export default class Signaler extends Component {
 
   static propTypes = {
     children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.element),
-      PropTypes.element
+      PropTypes.func,
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
     ]).isRequired,
     signalerInstance: PropTypes.object.isRequired,
     featureName: PropTypes.string.isRequired,
@@ -49,6 +50,9 @@ export default class Signaler extends Component {
   }
 
   render() {
+    if (typeof this.props.children === 'function') {
+      return this.props.children(this.state.flag);
+    }
     const component = this.getComponent();
     if (this.props.wrapper) {
       return React.createElement(
