@@ -139,46 +139,44 @@ describe('Signaler', () => {
     });
   });
   describe('with function as children', function() {
-      beforeEach(() => {
-        signalerComponent = ReactDOM.render(
-          <Signaler signalerInstance={signalerInstance} featureName="feature1">
-          { flag => {
-            switch(flag) {
-              case 'flag1':
+    beforeEach(() => {
+      signalerComponent = ReactDOM.render(
+        <Signaler signalerInstance={signalerInstance} featureName="feature1">
+        { flag => {
+          switch(flag) {
+            case 'flag1':
               return <div>Flag1</div>;
-              case 'flag2':
+            case 'flag2':
               return <div>Flag2</div>;
-              default:
+            default:
               return null;
-            }
-          }}
+          }
+        }}
+        </Signaler>,
+        document.getElementById('app')
+      );
+    });
 
+    afterEach(() => {
+      ReactDOM.unmountComponentAtNode(document.getElementById('app'));
+    });
 
-          </Signaler>,
-          document.getElementById('app')
-        );
+    it('renders nothing if no match', (done) => {
+      signalerComponent.state.flag = 'nomatch';
+      signalerComponent.forceUpdate(() => {
+        const component = ReactDOM.findDOMNode(signalerComponent);
+        expect(component).toNotExist();
+        done();
       });
+    });
 
-      afterEach(() => {
-        ReactDOM.unmountComponentAtNode(document.getElementById('app'));
+    it('renders matching component', (done) => {
+      signalerComponent.state.flag = 'flag1';
+      signalerComponent.forceUpdate(() => {
+        const component = ReactDOM.findDOMNode(signalerComponent);
+        expect(component.innerHTML).toBe('Flag1');
+        done();
       });
-
-      it('renders nothing if no match', (done) => {
-        signalerComponent.state.flag = 'nomatch';
-        signalerComponent.forceUpdate(() => {
-          const component = ReactDOM.findDOMNode(signalerComponent);
-          expect(component).toNotExist();
-          done();
-        });
-      });
-
-      it('renders matching component', (done) => {
-        signalerComponent.state.flag = 'flag1';
-        signalerComponent.forceUpdate(() => {
-          const component = ReactDOM.findDOMNode(signalerComponent);
-          expect(component.innerHTML).toBe('Flag1');
-          done();
-        });
-      });
-  })
+    });
+  });
 });
