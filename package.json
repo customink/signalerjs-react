@@ -1,6 +1,6 @@
 {
   "name": "signalerjs-react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "signalerjs React component for A/B testing",
   "main": "dist/signalerjs-react.min.js",
   "scripts": {
