@@ -38,3 +38,23 @@ import Signaler from 'signalerjs-react';
   <DefaultComponent flag=".*" />
 </Signaler>
 ```
+Signaler also can take a function as a child to render specific elements
+
+```js
+<Signaler signalerInstance={instance} featureName="myFeature">
+  {flag => {
+    const content = <SharedStuff />
+    switch(flag) {
+      case 'testA':
+        return <Wrapper><ComponentA /></Wrapper>;
+      case 'testB':
+        return <ComponentB>{content}</ComponentB>;
+      case 'testC':
+      case 'testD':
+        return content;
+      default:
+        return <DefaultComponent />
+    }
+  }}  
+</Signaler>
+```
