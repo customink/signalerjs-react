@@ -21,7 +21,7 @@ npm install --save signalerjs-react
 While the `npm` package is recommended for production usage, if you just want to drop a `<script>` tag on your page you can also use the UMD/global build hosted on [`npmcdn`](https://npmcdn.com/signalerjs-react).
 
 ```html
-<script src="https://npmcdn.com/signalerjs-react@0.0.1"></script>
+<script src="https://npmcdn.com/signalerjs-react@0.2.1"></script>
 ```
 
 ## Example Usage
