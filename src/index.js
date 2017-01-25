@@ -22,7 +22,7 @@ export default class Signaler extends Component {
     this.getFlag();
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps() {
     this.getFlag();
   }
 

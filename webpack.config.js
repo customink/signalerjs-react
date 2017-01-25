@@ -1,22 +1,27 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
-  entry: './src',
+  entry: {
+    'signalerjs-react': 'index.js',
+    'signalerjs-react.min': 'index.js'
+  },
   module: {
     loaders: [
       {test: /\.js$/, loader: 'babel', exclude: /node_modules/}
     ]
   },
   output: {
-    filename: 'dist/signalerjs-react.min.js',
+   filename: 'dist/[name].js',
     libraryTarget: 'umd',
     library: 'signalerjs-react'
   },
   resolve: {
     extensions: ['', '.js'],
-    modulesDirectories: ['node_modules'],
-    fallback: __dirname
+    root: path.resolve('src'),
+    modulesDirectory: 'node_modules'
   },
+  context: path.join(__dirname, 'src'),
   externals: [
     {
       "react": {
@@ -35,6 +40,9 @@ module.exports = {
       }
     }),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin({
+      include: /\.min\.js$/,
+      minimize: true
+    })
   ]
 };
