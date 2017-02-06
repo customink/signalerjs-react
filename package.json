@@ -28,7 +28,6 @@
   "files": [
     "dist"
   ],
-  "author": "Jonathan Lehman <jlehman@customink.com>",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.22.1",
@@ -38,15 +37,18 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.22.0",
+    "enzyme": "^2.7.1",
     "eslint": "^3.14.0",
     "eslint-plugin-babel": "^4.0.1",
     "eslint-plugin-react": "^6.9.0",
     "expect": "^1.20.2",
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
-    "react": "^15.0.0",
-    "react-dom": "^15.0.0",
+    "react": "^15.4.2",
+    "react-addons-test-utils": "^15.4.2",
+    "react-dom": "^15.4.2",
     "signalerjs": "^0.4.0",
+    "sinon": "^1.17.7",
     "webpack": "^1.14.0"
   },
   "peerDependencies": {
