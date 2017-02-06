@@ -3,7 +3,7 @@ import Signaler from 'signalerjs';
 
 export default class SignalProvider extends Component {
   static propTypes = {
-    features: PropTypes.oneOf([PropTypes.object, PropTypes.string]).isRequired,
+    features: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
     children: PropTypes.element
   }
 

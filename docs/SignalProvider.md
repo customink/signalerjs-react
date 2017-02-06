@@ -21,7 +21,7 @@ Nothing will be rendered until signals are retrieved.
 
 ### `features`
 
-This prop is passed directly into `Signaler`. It can be either a url or `Signaler` configuration object. See the Signaler (documention)[https://github.com/customink/signalerjs/blob/master/docs/configuration.md] for more.
+This prop is passed directly into `Signaler`. It can be either a url or `Signaler` configuration object. See the Signaler [documention](https://github.com/customink/signalerjs/blob/master/docs/configuration.md) for more.
 
 ### `children`
 
