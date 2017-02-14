@@ -4,7 +4,7 @@ import Signaler from 'signalerjs';
 export default class SignalProvider extends Component {
   static propTypes = {
     features: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
-    children: PropTypes.element
+    children: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
   }
 
   static childContextTypes = {
@@ -35,6 +35,10 @@ export default class SignalProvider extends Component {
   };
 
   render() {
-    return this.signals && React.Children.only(this.props.children);
+    if (typeof this.props.children === 'function') {
+      return this.props.children(this.signals);
+    } else {
+      return this.signals && React.Children.only(this.props.children);
+    }
   }
 }

@@ -1,2 +1,2 @@
 export SignalProvider from './SignalProvider';
-export featureFlagged from './signalFactory';
+export signal from './signalFactory';

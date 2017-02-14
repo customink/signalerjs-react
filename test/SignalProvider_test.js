@@ -1,8 +1,6 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 import expect from 'expect';
-import sinon from 'sinon';
-// import Signaler from 'signalerjs';
 import {SignalProvider} from '../src';
 
 describe('SignalProvider', () => {
@@ -19,7 +17,7 @@ describe('SignalProvider', () => {
   it('sets signals', () => {
     const c = shallow(<SignalProvider features={features}><div/></SignalProvider>);
     const p = Promise.resolve(signals);
-    c.instance().signaler = {featureFlags: sinon.stub().returns(p)};
+    c.instance().signaler = {featureFlags() {return p;}};
     c.instance().componentDidMount();
     return p.then(() => expect(c.instance().signals).toBe(signals));
   });
@@ -28,5 +26,13 @@ describe('SignalProvider', () => {
     expect(c.find('div').length).toBe(0);
     c.instance().updateSignals({showStuff: true});
     expect(c.find('div').length).toBe(1);
+  });
+  it('renders function', () => {
+    const child = signals => {
+      return signals && <div>hi!</div>;
+    };
+    const c = shallow(<SignalProvider features={features}>{child}</SignalProvider>);
+    c.instance().updateSignals({showStuff: true});
+    expect(c.html()).toMatch('hi!');
   });
 });

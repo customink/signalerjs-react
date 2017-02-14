@@ -15,8 +15,6 @@ React.render(
 
 ```
 
-Nothing will be rendered until signals are retrieved.
-
 ## Props
 
 ### `features`
@@ -25,4 +23,4 @@ This prop is passed directly into `Signaler`. It can be either a url or `Signale
 
 ### `children`
 
-This is the child element passed to signaler. It must be a single element.
+This is the child element passed to signaler. It must be a single element or a function. When it's an element, nothing will be rendered until signals are retrieved. If a function, it will be passed the `signals` or a falsy value if they aren't retrieved.
