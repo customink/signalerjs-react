@@ -14,7 +14,8 @@ module.exports = {
   "env": {
     "mocha": true,
     "node": true,
-    "browser": true
+    "browser": true,
+    "es6": true
   },
   "rules": {
     "eol-last": 2,
@@ -33,7 +34,7 @@ module.exports = {
     "react/jsx-boolean-value": 2,
     "react/jsx-key": 2,
     "react/jsx-equals-spacing": [1, "never"],
-    "react/prefer-stateless-function": 2,
+    "react/prefer-stateless-function": 1,
     "react/sort-comp": [1, {
       "order": [
         "lifecycle",
