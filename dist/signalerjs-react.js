@@ -139,7 +139,11 @@ var SignalProvider = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      return this.signals && _react2.default.Children.only(this.props.children);
+      if (typeof this.props.children === 'function') {
+        return this.props.children(this.signals);
+      } else {
+        return this.signals && _react2.default.Children.only(this.props.children);
+      }
     }
   }]);
 
@@ -148,7 +152,7 @@ var SignalProvider = function (_Component) {
 
 SignalProvider.propTypes = {
   features: _react.PropTypes.oneOfType([_react.PropTypes.object, _react.PropTypes.string]).isRequired,
-  children: _react.PropTypes.element
+  children: _react.PropTypes.oneOfType([_react.PropTypes.func, _react.PropTypes.element])
 };
 SignalProvider.childContextTypes = {
   signals: _react.PropTypes.object,
@@ -177,7 +181,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-exports.default = featureFlagged;
+exports.default = signal;
 
 var _react = __webpack_require__(1);
 
@@ -195,7 +199,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-function featureFlagged() {
+function signal() {
   var mapSignalsToProps = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function (signals) {
     return signals;
   };
@@ -241,7 +245,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_3__;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.featureFlagged = exports.SignalProvider = undefined;
+exports.signal = exports.SignalProvider = undefined;
 
 var _SignalProvider2 = __webpack_require__(0);
 
@@ -254,7 +258,7 @@ var _signalFactory2 = _interopRequireDefault(_signalFactory);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.SignalProvider = _SignalProvider3.default;
-exports.featureFlagged = _signalFactory2.default;
+exports.signal = _signalFactory2.default;
 
 /***/ })
 /******/ ]);
