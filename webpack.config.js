@@ -7,8 +7,8 @@ module.exports = {
     'signalerjs-react.min': 'index.js'
   },
   module: {
-    loaders: [
-      {test: /\.js$/, loader: 'babel', exclude: /node_modules/}
+    rules: [
+      {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/}
     ]
   },
   output: {
@@ -17,32 +17,41 @@ module.exports = {
     library: 'signalerjs-react'
   },
   resolve: {
-    extensions: ['', '.js'],
-    root: path.resolve('src'),
-    modulesDirectory: 'node_modules'
+    modules: [
+      path.resolve('src'),
+      'node_modules'
+    ],
+    extensions: ['.js']
   },
-  context: path.join(__dirname, 'src'),
+  // context: path.join(__dirname, 'src'),
   externals: [
     {
-      "react": {
-        root: "React",
-        commonjs2: "react",
-        commonjs: "react",
-        amd: "react"
+      'react': {
+        root: 'React',
+        commonjs2: 'react',
+        commonjs: 'react',
+        amd: 'react'
+      },
+      'signalerjs': {
+        root: 'signalerjs',
+        commonjs2: 'signalerjs',
+        commonjs: 'signalerjs',
+        umd: 'signalerjs'
       }
     }
   ],
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       include: /\.min\.js$/,
-      minimize: true
+      sourceMap: true
     })
   ]
 };
