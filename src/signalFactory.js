@@ -8,7 +8,8 @@ export default function featureFlagged(mapSignalsToProps = signals => signals) {
     static displayName = `Signals(${WrappedComponent.displayName})`;
 
     render() {
-      return <WrappedComponent {...this.props} {...mapSignalsToProps(this.context.signals)} />;
+      const signalledProps = this.context.signals ? mapSignalsToProps(this.context.signals, this.props) : {};
+      return <WrappedComponent {...this.props} {...signalledProps} />;
     }
   };
 }

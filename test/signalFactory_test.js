@@ -13,9 +13,9 @@ describe('signalFactory', () => {
     expect(c.find('Mock').props('signals')).toMatch({some: 'signals'});
   });
   it('uses mapSignalsToProps', () => {
-    const Wrapped = featureFlagged(() => ({something: 'else'}))(Mock);
-    const c = shallow(<Wrapped />, {context: {signals: {some: 'signals'}}});
-    expect(c.find('Mock').props('signals')).toMatch({something: 'else'});
+    const Wrapped = featureFlagged((signals, ownProps) => ({something: 'else', ...signals, ...ownProps}))(Mock);
+    const c = shallow(<Wrapped some="prop" />, {context: {signals: {some: 'signals'}}});
+    expect(c.find('Mock').props('signals')).toMatch({something: 'else', some: 'prop'});
   });
   it('passes own props', () => {
     const Wrapped = featureFlagged()(Mock);
