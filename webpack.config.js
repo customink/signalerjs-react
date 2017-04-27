@@ -23,7 +23,6 @@ module.exports = {
     ],
     extensions: ['.js']
   },
-  // context: path.join(__dirname, 'src'),
   externals: [
     {
       'react': {

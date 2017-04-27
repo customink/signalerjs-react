@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-  import SignalProvider from './SignalProvider';
+import SignalProvider from './SignalProvider';
 
 export default function signal(mapSignalsToProps = signals => signals) {
   return WrappedComponent =>
