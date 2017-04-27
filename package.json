@@ -37,16 +37,16 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.22.0",
-    "enzyme": "^2.7.1",
+    "enzyme": "^2.8.2",
     "eslint": "^3.14.0",
     "eslint-plugin-babel": "^4.0.1",
     "eslint-plugin-react": "^6.9.0",
     "expect": "^1.20.2",
     "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
-    "react": "^15.4.2",
-    "react-addons-test-utils": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-test-renderer": "^15.5.4",
     "signalerjs": "^0.4.0",
     "sinon": "^1.17.7",
     "webpack": "^2.2.1"
@@ -54,5 +54,8 @@
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
     "signalerjs": "^0.4.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.8"
   }
 }
