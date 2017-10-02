@@ -27,6 +27,7 @@ describe('SignalProvider', () => {
     const c = shallow(<SignalProvider features={features}><div/></SignalProvider>);
     expect(c.find('div').length).toBe(0);
     c.instance().updateSignals({showStuff: true});
+    c.update();
     expect(c.find('div').length).toBe(1);
   });
 
@@ -36,6 +37,7 @@ describe('SignalProvider', () => {
     };
     const c = shallow(<SignalProvider features={features}>{child}</SignalProvider>);
     c.instance().updateSignals({showStuff: true});
+    c.update();
     expect(c.html()).toMatch('hi!');
   });
 });
