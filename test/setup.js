@@ -1,4 +1,6 @@
 import {JSDOM} from 'jsdom';
+import {configure} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 process.env.NODE_ENV = 'test';
 process.env.BABEL_ENV = 'test';
@@ -11,3 +13,4 @@ global.window = jsdom.window;
 global.document = jsdom.window.document;
 global.self = global.window;
 global.navigator = global.window.navigator;
+configure({adapter: new Adapter()});
